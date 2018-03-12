@@ -1,0 +1,996 @@
+# 默认
+MAKE = $(MAKE_COMMAND)
+# 环境
+QT_IM_MODULE = fcitx
+# 环境
+SHLVL = 1
+# 默认
+AS = as
+# 默认
+PREPROCESS.S = $(CC) -E $(CPPFLAGS)
+# 默认
+COMPILE.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# 环境
+XDG_SESSION_ID = 1
+# 环境
+USER = j
+# 默认
+FC = f77
+# makefile
+.DEFAULT_GOAL := all
+# 环境
+XDG_CURRENT_DESKTOP = XFCE
+# makefile (from 'Makefile', line 17)
+HC = 
+# 自动
+%D = $(patsubst %/,%,$(dir $%))
+# 默认
+WEAVE = weave
+# 默认
+MAKE_COMMAND := make
+# 默认
+LINK.cpp = $(LINK.cc)
+# 默认
+F77 = $(FC)
+# 环境
+OLDPWD = /home/j/documents/c/linux_c/ProgrammingRepartie/TME3/bin
+# 默认
+.VARIABLES := 
+# 默认
+PC = pc
+# 自动
+*F = $(notdir $*)
+# 默认
+COMPILE.def = $(M2C) $(M2FLAGS) $(DEFFLAGS) $(TARGET_ARCH)
+# 默认
+LEX = lex
+# makefile
+MAKEFLAGS = p
+# 环境
+MFLAGS = -p
+# 自动
+*D = $(patsubst %/,%,$(dir $*))
+# 默认
+LEX.l = $(LEX) $(LFLAGS) -t
+# 默认
+LEX.m = $(LEX) $(LFLAGS) -t
+# 自动
++D = $(patsubst %/,%,$(dir $+))
+# 默认
+COMPILE.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -c
+# 自动
++F = $(notdir $+)
+# 默认
+M2C = m2c
+# 环境
+TEXTDOMAINDIR = /usr/share/locale/
+# 默认
+MAKEFILES := 
+# 默认
+COMPILE.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# 自动
+<F = $(notdir $<)
+# 默认
+CXX = g++
+# 默认
+COFLAGS = 
+# 默认
+COMPILE.C = $(COMPILE.cc)
+# 环境
+QT4_IM_MODULE = fcitx
+# 自动
+^F = $(notdir $^)
+# 默认
+COMPILE.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(TARGET_MACH) -c
+# 默认
+LINK.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# 默认
+SUFFIXES := .out .a .ln .o .c .cc .C .cpp .p .f .F .m .r .y .l .ym .yl .s .S .mod .sym .def .h .info .dvi .tex .texinfo .texi .txinfo .w .ch .web .sh .elc .el
+# 默认
+COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# 环境
+WINDOWPATH = 7
+# 默认
+COMPILE.s = $(AS) $(ASFLAGS) $(TARGET_MACH)
+# 默认
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# 默认
+.RECIPEPREFIX := 
+# 默认
+MAKEINFO = makeinfo
+# 默认
+OBJC = cc
+# 默认
+LINK.f = $(FC) $(FFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# 默认
+TEX = tex
+# 环境
+LANG = zh_CN.utf8
+# 环境
+TERM = xterm
+# 默认
+F77FLAGS = $(FFLAGS)
+# 默认
+LINK.o = $(CC) $(LDFLAGS) $(TARGET_ARCH)
+# 变量的杂凑表状态:
+# 负载=149/1024=15%, 重新杂凑=0, 碰撞=37/223=17%
+
+# Pattern-specific 变量值
+
+# 没有 pattern-specific 变量的值。
+
+# 目录
+
+# src/RCS：无法对其进行 stat 操作。
+# SCCS：无法对其进行 stat 操作。
+# obj (设备 2049，i-节点 924405)：2 文件， 无 不可能.
+# . (设备 2049，i-节点 924309)：8 文件， 无 不可能.
+# bin (设备 2049，i-节点 924407)：4 文件， 无 不可能.
+# bin/SCCS：无法对其进行 stat 操作。
+# bin/RCS：无法对其进行 stat 操作。
+# src (设备 2049，i-节点 924312)：6 文件， 3 不可能.
+# src/SCCS：无法对其进行 stat 操作。
+# RCS：无法对其进行 stat 操作。
+
+# 20 文件， 3 不可能在 10 目录中。
+
+# 隐含规则。
+
+bin/%: obj/%.o
+#  recipe to execute (from 'Makefile', line 39):
+	@if [ -d $(BIN) ]; then : ; else mkdir $(BIN); fi
+	$(CC) $(LDFLAGS) -o $@ $^
+
+obj/%.o: src/%.c
+#  recipe to execute (from 'Makefile', line 43):
+	@if [ -d $(OBJ) ]; then : ; else mkdir $(OBJ); fi
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+include/%.h:
+#  recipe to execute (from 'Makefile', line 47):
+	@if [ -d $(INCLUDE) ]; then : ; else mkdir $(INCLUDE); fi
+
+(%): %
+#  recipe to execute (内置)：
+	$(AR) $(ARFLAGS) $@ $<
+
+%.out: %
+#  recipe to execute (内置)：
+	@rm -f $@ 
+	 cp $< $@
+
+%.c: %.w %.ch
+#  recipe to execute (内置)：
+	$(CTANGLE) $^ $@
+
+%.tex: %.w %.ch
+#  recipe to execute (内置)：
+	$(CWEAVE) $^ $@
+
+%:: %,v
+#  recipe to execute (内置)：
+	$(CHECKOUT,v)
+
+%:: RCS/%,v
+#  recipe to execute (内置)：
+	$(CHECKOUT,v)
+
+%:: RCS/%
+#  recipe to execute (内置)：
+	$(CHECKOUT,v)
+
+%:: s.%
+#  recipe to execute (内置)：
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+%:: SCCS/s.%
+#  recipe to execute (内置)：
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+# 12 条隐含规则，5 (41.7%) 终端。
+
+# 文件
+
+bin/forkfilemax: obj/forkfilemax.o
+#  对隐含规则的搜索已完成。
+#  Implicit/static pattern stem: 'forkfilemax'
+#  最近更新 2016-11-24 18:47:39.393019364
+#  文件已经被更新。
+#  更新成功。
+#  recipe to execute (from 'Makefile', line 39):
+	@if [ -d $(BIN) ]; then : ; else mkdir $(BIN); fi
+	$(CC) $(LDFLAGS) -o $@ $^
+
+# 不是一个目标：
+.web.p:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(TANGLE) $<
+
+# 不是一个目标：
+.l.r:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LEX.l) $< > $@ 
+	 mv -f lex.yy.r $@
+
+# 不是一个目标：
+.dvi:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+src/synchro_proc.c:
+#  对隐含规则的搜索已完成。
+#  最近更新 2016-10-31 09:18:22
+#  文件已经被更新。
+#  更新成功。
+
+# 不是一个目标：
+.ym:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.f.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.f) $(OUTPUT_OPTION) $<
+
+test-forkfilemax: bin/forkfilemax
+#  假目标 (.PHONY的前提)。
+#  对隐含规则的搜索尚未完成。
+#  文件不存在。
+#  文件尚未被更新。
+#  recipe to execute (from 'Makefile', line 30):
+	-$$PWD/bin/forkfilemax
+
+# 不是一个目标：
+.l:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.m:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.m) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.ln:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.y:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.def.sym:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.def) -o $@ $<
+
+.PHONY: all clean test test-synchro_proc test-forkfilemax test-mon_petit_frere
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.p.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.p) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+.p:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.p) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.txinfo.dvi:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# 不是一个目标：
+.a:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.yl:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.l.ln:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	@$(RM) $*.c
+	 $(LEX.l) $< > $*.c
+	$(LINT.c) -i $*.c -o $@
+	 $(RM) $*.c
+
+# 不是一个目标：
+.F.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.F) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+.texi.info:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+# 不是一个目标：
+.w.c:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(CTANGLE) $< - $@
+
+# 不是一个目标：
+.texi.dvi:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+obj/mon_petit_frere.o: src/mon_petit_frere.c
+#  对隐含规则的搜索已完成。
+#  Implicit/static pattern stem: 'mon_petit_frere'
+#  文件是一个中间前提。
+#  最近更新 2016-11-24 19:52:45.536026191
+#  文件已经被更新。
+#  更新成功。
+# 自动
+# @ := obj/mon_petit_frere.o
+# 自动
+# % := 
+# 自动
+# * := mon_petit_frere
+# 自动
+# + := src/mon_petit_frere.c
+# 自动
+# | := 
+# 自动
+# < := src/mon_petit_frere.c
+# 自动
+# ^ := src/mon_petit_frere.c
+# 自动
+# ? := src/mon_petit_frere.c
+# 变量的杂凑表状态:
+# 负载=8/32=25%, 重新杂凑=0, 碰撞=1/22=5%
+#  recipe to execute (from 'Makefile', line 43):
+	@if [ -d $(OBJ) ]; then : ; else mkdir $(OBJ); fi
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+# 不是一个目标：
+.ch:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.m.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.m) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+.cc:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.cc.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+.def:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+.SUFFIXES:
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.c.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+Makefile:
+#  对隐含规则的搜索已完成。
+#  最近更新 2016-10-31 09:18:22
+#  文件已经被更新。
+#  更新成功。
+
+# 不是一个目标：
+.r.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.r) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+.r:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.r) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+test: test-synchro_proc test-forkfilemax test-mon_petit_frere
+#  假目标 (.PHONY的前提)。
+#  对隐含规则的搜索尚未完成。
+#  文件不存在。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.ym.m:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(YACC.m) $< 
+	 mv -f y.tab.c $@
+
+# 不是一个目标：
+.y.ln:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(YACC.y) $< 
+	 $(LINT.c) -C$* y.tab.c 
+	 $(RM) y.tab.c
+
+bin/synchro_proc: obj/synchro_proc.o
+#  对隐含规则的搜索已完成。
+#  Implicit/static pattern stem: 'synchro_proc'
+#  最近更新 2016-11-24 18:44:26.857024133
+#  文件已经被更新。
+#  更新成功。
+#  recipe to execute (from 'Makefile', line 39):
+	@if [ -d $(BIN) ]; then : ; else mkdir $(BIN); fi
+	$(CC) $(LDFLAGS) -o $@ $^
+
+# 不是一个目标：
+.elc:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.l.c:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	@$(RM) $@ 
+	 $(LEX.l) $< > $@
+
+# 不是一个目标：
+.out:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+all: bin/synchro_proc bin/forkfilemax bin/mon_petit_frere
+#  假目标 (.PHONY的前提)。
+#  对隐含规则的搜索尚未完成。
+#  文件不存在。
+#  文件已经被更新。
+#  更新成功。
+# 变量的杂凑表状态:
+# 负载=0/32=0%, 重新杂凑=0, 碰撞=0/24=0%
+
+# 不是一个目标：
+.C:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.r.f:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(PREPROCESS.r) $(OUTPUT_OPTION) $<
+
+obj/forkfilemax.o: src/forkfilemax.c
+#  对隐含规则的搜索已完成。
+#  Implicit/static pattern stem: 'forkfilemax'
+#  文件是一个中间前提。
+#  文件不存在。
+#  文件尚未被更新。
+#  recipe to execute (from 'Makefile', line 43):
+	@if [ -d $(OBJ) ]; then : ; else mkdir $(OBJ); fi
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+# 不是一个目标：
+.S:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.S) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.texinfo.info:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+# 不是一个目标：
+.c:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.w.tex:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(CWEAVE) $< - $@
+
+# 不是一个目标：
+src/mon_petit_frere.c:
+#  对隐含规则的搜索已完成。
+#  最近更新 2016-10-31 15:41:46
+#  文件已经被更新。
+#  更新成功。
+
+# 不是一个目标：
+.c.ln:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINT.c) -C$* $<
+
+# 不是一个目标：
+.s.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.s) -o $@ $<
+
+# 不是一个目标：
+.s:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.s) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.texinfo.dvi:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# 不是一个目标：
+.el:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.lm.m:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	@$(RM) $@ 
+	 $(LEX.m) $< > $@
+
+# 不是一个目标：
+.y.c:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(YACC.y) $< 
+	 mv -f y.tab.c $@
+
+test-synchro_proc: bin/synchro_proc
+#  假目标 (.PHONY的前提)。
+#  对隐含规则的搜索尚未完成。
+#  文件不存在。
+#  文件尚未被更新。
+#  recipe to execute (from 'Makefile', line 27):
+	-$$PWD/bin/synchro_proc
+
+# 不是一个目标：
+.web.tex:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(WEAVE) $<
+
+# 不是一个目标：
+.texinfo:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.DEFAULT:
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.h:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.tex.dvi:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(TEX) $<
+
+# 不是一个目标：
+.cpp.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.cpp) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+.cpp:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+clean:
+#  假目标 (.PHONY的前提)。
+#  对隐含规则的搜索尚未完成。
+#  文件不存在。
+#  文件尚未被更新。
+#  recipe to execute (from 'Makefile', line 36):
+	rm -rf $(OBJ)*.o $(BIN)*
+
+# 不是一个目标：
+.C.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.C) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+src/forkfilemax.c:
+#  对隐含规则的搜索已完成。
+#  最近更新 2016-10-31 09:18:22
+#  文件已经被更新。
+#  更新成功。
+
+# 不是一个目标：
+.texi:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.txinfo:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.tex:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.txinfo.info:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+bin/mon_petit_frere: obj/mon_petit_frere.o
+#  对隐含规则的搜索已完成。
+#  Implicit/static pattern stem: 'mon_petit_frere'
+#  最近更新 2016-11-24 19:52:45.58002619
+#  文件已经被更新。
+#  更新成功。
+# 自动
+# @ := bin/mon_petit_frere
+# 自动
+# % := 
+# 自动
+# * := mon_petit_frere
+# 自动
+# + := obj/mon_petit_frere.o
+# 自动
+# | := 
+# 自动
+# < := obj/mon_petit_frere.o
+# 自动
+# ^ := obj/mon_petit_frere.o
+# 自动
+# ? := obj/mon_petit_frere.o
+# 变量的杂凑表状态:
+# 负载=8/32=25%, 重新杂凑=0, 碰撞=1/34=3%
+#  recipe to execute (from 'Makefile', line 39):
+	@if [ -d $(BIN) ]; then : ; else mkdir $(BIN); fi
+	$(CC) $(LDFLAGS) -o $@ $^
+
+# 不是一个目标：
+.sh:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	cat $< >$@ 
+	 chmod a+x $@
+
+obj/synchro_proc.o: src/synchro_proc.c
+#  对隐含规则的搜索已完成。
+#  Implicit/static pattern stem: 'synchro_proc'
+#  文件是一个中间前提。
+#  文件不存在。
+#  文件尚未被更新。
+#  recipe to execute (from 'Makefile', line 43):
+	@if [ -d $(OBJ) ]; then : ; else mkdir $(OBJ); fi
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+# 不是一个目标：
+.S.s:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(PREPROCESS.S) $< > $@
+
+# 不是一个目标：
+.mod:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.mod) -o $@ -e $@ $^
+
+# 不是一个目标：
+.mod.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.mod) -o $@ $<
+
+# 不是一个目标：
+.F.f:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(PREPROCESS.F) $(OUTPUT_OPTION) $<
+
+# 不是一个目标：
+.w:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.S.o:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(COMPILE.S) -o $@ $<
+
+# 不是一个目标：
+.F:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# 不是一个目标：
+.web:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.sym:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 不是一个目标：
+.f:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+#  recipe to execute (内置)：
+	$(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+test-mon_petit_frere: bin/mon_petit_frere
+#  假目标 (.PHONY的前提)。
+#  对隐含规则的搜索尚未完成。
+#  文件不存在。
+#  文件尚未被更新。
+#  recipe to execute (from 'Makefile', line 33):
+	-$$PWD/bin/mon_petit_frere
+
+# 不是一个目标：
+.info:
+#  Builtin rule
+#  对隐含规则的搜索尚未完成。
+#  从不检查修改时间。
+#  文件尚未被更新。
+
+# 文件杂凑表状态:
+# 负载=89/1024=9%, 重新杂凑=0, 碰撞=44/251=18%
+# VPATH 搜索路径
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 179 / storage = 2186 B / avg = 12 B
+# current buf: size = 8162 B / used = 2186 B / count = 179 / avg = 12 B
+
+# strcache performance: lookups = 247 / hit rate = 27%
+# hash-table stats:
+# 负载=179/8192=2%, 重新杂凑=0, 碰撞=20/247=8%
+# 在 Thu Nov 24 19:52:45 2016
+ 上完成 make 数据基础

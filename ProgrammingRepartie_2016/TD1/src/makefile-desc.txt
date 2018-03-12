@@ -1,0 +1,12 @@
+1 	.SUFFIXES	#Define the suffixe list,or change the suffixes
+2 	.PHONY	#Define the phony targets who are not variables or files
+3 	$(BIN)% : $(OBJ)%.o $o 	
+#All objet files in ./obj is the dependencies 
+#and the target is generate in ./bin directory
+#$O is the argument to the command below
+4 	$(OBJ)% : $(SRC)%.c $(HC) 
+#All .c files in ./src is the dependencies 
+#and the target <F3>is generate in ./obj directory
+#$O is the argument to the command below
+5 	-  #To ignore the errors and warnings while excuting
+6	$$ #To use a shell variable e.g. $$PWD

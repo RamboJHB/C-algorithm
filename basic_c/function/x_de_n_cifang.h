@@ -1,0 +1,2 @@
+double P(double,int);
+
